@@ -1,0 +1,168 @@
+# Part 4: Mail Dispatching Queue, SMTP Integration & Logging
+In this fourth stage, we set up the dispatch pipeline. This handles sending the rendered HTML email asynchronously via SMTP, managing sender headers, and recording full audit logs in the database so you can monitor delivery success right from Telegram.
+## 1. Async SMTP Dispatcher (engine/mailer.py)
+To prevent the Telegram bot from freezing while sending emails, we use asynchronous SMTP delivery (aiosmtplib).
+```python
+import aiosmtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from config.settings import settings
+
+class EmailDispatcher:
+    def __init__(self):
+        self.host = settings.SMTP_HOST
+        self.port = settings.SMTP_PORT
+        self.username = settings.SMTP_USER
+        self.password = settings.SMTP_PASS
+
+    async def send_email(
+        self, 
+        to_email: str, 
+        subject: str, 
+        html_content: str, 
+        sender_name: str = "Support Team"
+    ) -> tuple[bool, str]:
+        """
+        Dispatches HTML email via SMTP asynchronously.
+        Returns (success_status, message_or_error).
+        """
+        message = MIMEMultipart("alternative")
+        message["From"] = f"{sender_name} <{self.username}>"
+        message["To"] = to_email
+        message["Subject"] = subject
+
+        # Attach rendered inlined HTML
+        html_part = MIMEText(html_content, "html", "utf-8")
+        message.attach(html_part)
+
+        try:
+            await aiosmtplib.send(
+                message,
+                hostname=self.host,
+                port=self.port,
+                username=self.username,
+                password=self.password,
+                start_tls=True if self.port == 587 else False,
+                use_tls=True if self.port == 465 else False,
+            )
+            return True, "Email delivered successfully."
+        except Exception as e:
+            return False, f"SMTP Error: {str(e)}"
+
+```
+## 2. Database Logging Schema (database/models.py)
+Using **SQLAlchemy** (or raw PostgreSQL connection queries), every dispatch request is recorded with timestamps, target email, brand template used, and delivery status.
+```python
+from datetime import datetime
+from sqlalchemy import Column, Integer, String, DateTime, Text, Boolean
+from sqlalchemy.orm import declarative_base
+
+Base = declarative_base()
+
+class DispatchLog(Base):
+    __tablename__ = "dispatch_logs"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    telegram_user_id = Column(String(50), nullable=False)
+    recipient_email = Column(String(255), nullable=False)
+    brand_used = Column(String(100), nullable=False)
+    template_used = Column(String(100), nullable=False)
+    subject = Column(String(255), nullable=False)
+    status = Column(String(50), nullable=False)  # 'SUCCESS' or 'FAILED'
+    error_message = Column(Text, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+```
+## 3. Dispatch Execution Handler (bot/handlers/dispatch_handler.py)
+When the user taps the **🚀 Dispatch Email Now** button in Telegram, the bot grabs the rendered HTML from the user session, triggers the background dispatcher, saves the record to the database, and reports back to Telegram in real-time.
+```python
+from telegram import Update
+from telegram.ext import ContextTypes
+from engine.mailer import EmailDispatcher
+from database.connection import save_dispatch_log
+
+mailer = EmailDispatcher()
+
+async def dispatch_email_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    user_data = context.user_data
+    recipient_email = user_data.get("recipient_email")
+    subject = user_data.get("email_subject", "Account Notification")
+    final_html = user_data.get("final_html")
+    brand_name = user_data.get("selected_brand", "System")
+    template_name = user_data.get("selected_template", "Default")
+
+    # Notify admin that dispatch has started
+    await query.edit_message_text("⏳ <b>Dispatching email via SMTP queue...</b>", parse_mode="HTML")
+
+    # Execute async email sending
+    success, result_msg = await mailer.send_email(
+        to_email=recipient_email,
+        subject=subject,
+        html_content=final_html,
+        sender_name=f"{brand_name.title()} Support"
+    )
+
+    # Save output status to PostgreSQL database
+    status_str = "SUCCESS" if success else "FAILED"
+    await save_dispatch_log(
+        user_id=str(update.effective_user.id),
+        recipient=recipient_email,
+        brand=brand_name,
+        template=template_name,
+        subject=subject,
+        status=status_str,
+        error=result_msg if not success else None
+    )
+
+    # Display clean status report to Admin in Telegram
+    if success:
+        status_text = (
+            "✅ <b>Email Successfully Dispatched!</b>\n\n"
+            f"• <b>Recipient:</b> <code>{recipient_email}</code>\n"
+            f"• <b>Brand Template:</b> {brand_name.title()}\n"
+            f"• <b>Subject:</b> {subject}\n"
+            f"• <b>Status:</b> Delivered"
+        )
+    else:
+        status_text = (
+            "❌ <b>Email Dispatch Failed!</b>\n\n"
+            f"• <b>Recipient:</b> <code>{recipient_email}</code>\n"
+            f"• <b>Reason:</b> <code>{result_msg}</code>"
+        )
+
+    await query.message.reply_text(text=status_text, parse_mode="HTML")
+
+```
+## 4. Log Retrieval UI (bot/handlers/log_viewer.py)
+Allows the admin to query recent delivery logs directly inside Telegram from the **📊 Dispatch Logs** menu button:
+```python
+async def show_logs_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    # Fetch last 5 logs from DB
+    recent_logs = await get_recent_logs(limit=5)
+    
+    if not recent_logs:
+        log_report = "<b>No dispatch logs found.</b>"
+    else:
+        log_report = "<b>📊 Recent Dispatch History:</b>\n\n"
+        for log in recent_logs:
+            icon = "✅" if log.status == "SUCCESS" else "❌"
+            log_report += (
+                f"{icon} <b>{log.recipient_email}</b> ({log.brand_used})\n"
+                f"└ Date: {log.created_at.strftime('%Y-%m-%d %H:%M:%S')} | Status: {log.status}\n\n"
+            )
+
+    await query.edit_message_text(text=log_report, parse_mode="HTML")
+
+```
+## Key Developer Deliverables for Part 4:
+ 1. Implement engine/mailer.py with aiosmtplib for non-blocking asynchronous email transmission.
+ 2. Set up database/models.py and database/connection.py to create tables automatically on startup.
+ 3. Wire the dispatch logic so every email sent generates an entry in the database.
+ 4. Hook up the **📊 Dispatch Logs** button to display historical records directly in the Telegram UI.
+Ready to move to the final step, **Part 5: GitHub Setup, Railway CI/CD & Production Deployment**?

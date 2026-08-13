@@ -1,0 +1,3 @@
+- [Project architecture](project-architecture.md) — multi-brand Telegram-bot + email mailer; bot is interactive admin panel, web panel is secondary
+- [Bot token 404 issue](bot-token-issue.md) — TELEGRAM_BOT_TOKEN gives 404 on getMe; bot gracefully disables itself; user must re-verify token
+- [OpenAPI integer rule](openapi-integer-rule.md) — all numeric fields must use type: number, not integer; Orval+zod v3 doesn't support zod.int()

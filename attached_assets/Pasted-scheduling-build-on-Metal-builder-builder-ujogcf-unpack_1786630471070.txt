@@ -1,0 +1,93 @@
+scheduling build on Metal builder "builder-ujogcf"
+unpacking archive
+2.8 MB
+19ms
+uploading snapshot
+1.3 MB
+30ms
+using build driver nixpacks-v1.41.0
+ 
+╔══════════════════════════════ Nixpacks v1.41.0 ══════════════════════════════╗
+║ setup      │ nodejs_18, npm-9_x                                              ║
+║──────────────────────────────────────────────────────────────────────────────║
+║ install    │ npx --yes pnpm --filter @workspace/api-server run build         ║
+║──────────────────────────────────────────────────────────────────────────────║
+║ build      │ npm install -g pnpm && pnpm install --no-frozen-lockfile &&     ║
+║            │ pnpm --filter @workspace/api-server run build                   ║
+║──────────────────────────────────────────────────────────────────────────────║
+║ start      │ pnpm --filter @workspace/api-server run start                   ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+ 
+ 
+Saved output to:
+  snapshot-target-unpack
+
+internal
+load build definition from Dockerfile
+0ms
+
+internal
+load metadata for ghcr.io/railwayapp/nixpacks:ubuntu-1745885067
+341ms
+
+internal
+load .dockerignore
+1ms
+SecretsUsedInArgOrEnv: Do not use ARG or ENV instructions for sensitive data (ARG "TELEGRAM_BOT_TOKEN") (line 11)(https://docs.docker.com/go/dockerfile/rule/secrets-used-in-arg-or-env/)
+ details: Sensitive data should not be used in the ARG or ENV commands
+SecretsUsedInArgOrEnv: Do not use ARG or ENV instructions for sensitive data (ENV "TELEGRAM_BOT_TOKEN") (line 12)(https://docs.docker.com/go/dockerfile/rule/secrets-used-in-arg-or-env/)
+ details: Sensitive data should not be used in the ARG or ENV commands
+UndefinedVar: Usage of undefined variable '$NIXPACKS_PATH' (line 18)(https://docs.docker.com/go/dockerfile/rule/undefined-var/)
+ details: Variables should be defined before their use
+
+stage-0
+FROM ghcr.io/railwayapp/nixpacks:ubuntu-1745885067@sha256:d45c89d80e13d7ad0fd555b5130f22a866d9dd10e861f589932303ef2314c7de
+12ms
+
+internal
+load build context
+0ms
+
+stage-0
+RUN nix-env -if .nixpacks/nixpkgs-ffeebf0acf3ae8b29f8c7049cd911b9636efd7e7.nix && nix-collect-garbage -d cached
+0ms
+
+stage-0
+COPY .nixpacks/nixpkgs-ffeebf0acf3ae8b29f8c7049cd911b9636efd7e7.nix .nixpacks/nixpkgs-ffeebf0acf3ae8b29f8c7049cd911b9636efd7e7.nix cached
+0ms
+
+stage-0
+WORKDIR /app/ cached
+0ms
+
+stage-0
+COPY . /app/.
+126ms
+
+stage-0
+RUN npx --yes pnpm --filter @workspace/api-server run build
+1s
+npm warn config production Use `--omit=dev` instead.
+> @workspace/api-server@0.0.0 build /app/artifacts/api-server
+> node ./build.mjs
+node:internal/errors:496
+    ErrorCaptureStackTrace(err);
+    ^
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'esbuild' imported from /app/artifacts/api-server/build.mjs
+    at new NodeError (node:internal/errors:405:5)
+    at packageResolve (node:internal/modules/esm/resolve:916:9)
+    at moduleResolve (node:internal/modules/esm/resolve:973:20)
+    at defaultResolve (node:internal/modules/esm/resolve:1206:11)
+    at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:404:12)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:373:25)
+    at ModuleLoader.getModuleJob (node:internal/modules/esm/loader:250:38)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/module_job:76:39)
+    at link (node:internal/modules/esm/module_job:75:36) {
+  code: 'ERR_MODULE_NOT_FOUND'
+}
+Node.js v18.20.5
+/app/artifacts/api-server:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @workspace/api-server@0.0.0 build: `node ./build.mjs`
+Exit status 1
+ WARN   Local package.json exists, but node_modules missing, did you mean to install?
+Build Failed: build daemon returned an error < failed to solve: process "/bin/bash -ol pipefail -c npx --yes pnpm --filter @workspace/api-server run build" did not complete successfully: exit code: 1 >

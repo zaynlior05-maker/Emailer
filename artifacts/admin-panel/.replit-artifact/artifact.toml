@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Telegram Notification Engine"
+description = "A web admin panel for managing multi-brand Telegram notification templates. Lets operators create and edit HTML-formatted message templates with dynamic variables, send test notifications, and view send history logs."
+version = "1.0.0"
+id = "artifacts/admin-panel"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20130
+
+[services.development]
+run = "pnpm --filter @workspace/admin-panel run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/admin-panel", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/admin-panel/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20130"
+BASE_PATH = "/"

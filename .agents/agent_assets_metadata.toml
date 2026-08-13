@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "JJsX2Fuc6J2Z_49wJPP_X"
+uri = "file://telegram-mailer-panel.zip"
+type = "unspecified"
+title = "Telegram Mailer Panel — Fixed (DB errors + auto-migration)"
+description = "Two fixes: DB tables auto-created on deploy, bot no longer crashes on DB errors."
+
+[[outputs]]
+id = "VBSvxI3i3C8_nsafEXlWD"
+uri = "file://all-source-code.txt"
+type = "text"
+title = "All Source Code — Plain Text"
+description = "Every source file concatenated into one .txt file. 24,126 lines covering the full project."

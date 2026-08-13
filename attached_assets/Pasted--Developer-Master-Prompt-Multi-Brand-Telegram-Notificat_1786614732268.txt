@@ -1,0 +1,53 @@
+
+# Developer Master Prompt: Multi-Brand Telegram Notification Engine
+## Executive Summary
+Build a lightweight **Telegram Bot & Web Admin Panel** that allows automated systems to render customized, beautifully formatted customer service notifications (e.g., support ticket receipts, account updates, verification logs) using dynamic HTML formatting, inline buttons, and brand design themes.
+## 1. Core Architecture & Tech Stack
+ * **Hosting Environment:** Railway (PaaS).
+ * **Code Repository:** GitHub (Automated CI/CD deployment to Railway).
+ * **Language/Framework:** Python (python-telegram-bot or Aiogram) + SQLite/PostgreSQL.
+ * **Storage:** Railway Persistent Volume (for saving custom notification templates and log history).
+## 2. Dynamic Template Engine Engine (How it Works)
+The bot acts as a design engine. It takes input data and injects it into pre-designed **HTML Card Themes** using standard variable tags:
+### Supported Dynamic Variables
+ * {{ recipient_name }} – Customer display name.
+ * {{ case_reference }} – Support ticket or transaction ID.
+ * {{ advisor_name }} – Assigned representative or bot handler.
+ * {{ status_message }} – Main notification body text.
+ * {{ timestamp }} – Current execution date/time.
+## 3. Visual Layout Modules (Theme Selector)
+The backend engine must render messages in Telegram using Telegram’s supported HTML formatting (<b>, <code>, <i>, <a href="...">).
+### Theme Module A: Light / Dark Minimalist Card
+```html
+<b>[ SUPPORT TICKET RECEIVED ]</b>
+
+Dear {{ recipient_name }},
+
+Your request <code>#{{ case_reference }}</code> has been assigned to <b>{{ advisor_name }}</b>.
+
+<i>Status:</i> Pending Review
+<i>Timestamp:</i> {{ timestamp }}
+
+```
+### Theme Module B: High-Priority Alert Layout
+```html
+<b>⚠️ ACTION REQUIRED</b>
+
+Hello {{ recipient_name }},
+We detected an unverified session update on your profile.
+
+<b>Reference ID:</b> <code>{{ case_reference }}</code>
+<b>Assigned Rep:</b> {{ advisor_name }}
+
+<i>Please click below to verify your session details:</i>
+
+```
+*(Render with an Inline Keyboard Button below the message pointing to the verification URL).*
+## 4. Telegram Bot Handlers & Workflow
+ 1. /start: Opens the Admin Main Menu (Template Selection, Payload Generator, Settings).
+ 2. /templates: Lists all available layout categories (Banking, Crypto, E-Commerce, Custom).
+ 3. /send: Accepts JSON data payloads and broadcasts the formatted HTML message to the designated target Chat ID.
+## 5. Developer Task Instructions
+ 1. **GitHub Setup:** Initialize a standard modular repository (/bot, /templates, /config).
+ 2. **Railway Deployment:** Add a Procfile / Dockerfile configured to bind the Telegram webhook or start a long-polling process.
+ 3. **Template Engine:** Build a helper function render_template(template_name, context_dict) that parses string tags like {{ recipient_name }} into safe HTML strings for bot.send_message(parse_mode='HTML').

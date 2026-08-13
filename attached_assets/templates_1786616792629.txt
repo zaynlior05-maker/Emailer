@@ -1,0 +1,554 @@
+Endless Mailer — Template Catalogue
+========================================
+
+[ AUS Bank ]
+   • AMP Bank Ongoing Call Notice
+   • AMP Bank Representative Verification
+   • AMP Bank Safeguard Notice
+   • AMP Bank Transaction Refund Request
+   • ANZ Account Setup
+   • ANZ Ongoing Call Notice
+   • ANZ Representative Verification 2
+   • ANZ Representative Verification 3
+   • ANZ Safeguard Notice
+   • ANZ Transaction Refund Request
+   • Adelaide Bank Ongoing Call Notice
+   • Adelaide Bank Representative Verification
+   • Adelaide Bank Safeguard Notice
+   • Adelaide Bank Transaction Refund Request
+   • Auswide Bank Ongoing Call Notice
+   • Auswide Bank Representative Verification
+   • Auswide Bank Safeguard Notice
+   • Auswide Bank Transaction Refund Request
+   • Bank of Melbourne Ongoing Call Notice
+   • Bank of Melbourne Representative Verification
+   • Bank of Melbourne Safeguard Notice
+   • Bank of Melbourne Transaction Refund Request
+   • Bank of Queensland Ongoing Call Notice
+   • Bank of Queensland Representative Verification
+   • Bank of Queensland Safeguard Notice
+   • Bank of Queensland Transaction Refund Request
+   • Bankwest Ongoing Call Notice
+   • Bankwest Representative Verification
+   • Bankwest Safeguard Notice
+   • Bankwest Transaction Refund Request
+   • Bendigo Bank Ongoing Call Notice
+   • Bendigo Bank Representative Verification
+   • Bendigo Bank Safeguard Notice
+   • Bendigo Bank Transaction Refund Request
+   • Beyond Bank Ongoing Call Notice
+   • Beyond Bank Representative Verification
+   • Beyond Bank Safeguard Notice
+   • Beyond Bank Transaction Refund Request
+   • Commonwealth Bank Account Setup
+   • Commonwealth Bank Ongoing Call Notice
+   • Commonwealth Bank Representative Verification 2
+   • Commonwealth Bank Representative Verification 3
+   • Commonwealth Bank Safeguard Notice
+   • Commonwealth Bank Transaction Refund Request
+   • Heritage Bank Ongoing Call Notice
+   • Heritage Bank Representative Verification
+   • Heritage Bank Safeguard Notice
+   • Heritage Bank Transaction Refund Request
+   • ING Australia Ongoing Call Notice
+   • ING Australia Representative Verification
+   • ING Australia Safeguard Notice
+   • ING Australia Transaction Refund Request
+   • ME Bank Ongoing Call Notice
+   • ME Bank Representative Verification
+   • ME Bank Safeguard Notice
+   • ME Bank Transaction Refund Request
+   • Macquarie Ongoing Call Notice
+   • Macquarie Representative Verification
+   • Macquarie Safeguard Notice
+   • Macquarie Transaction Refund Request
+   • NAB Ongoing Call Notice
+   • NAB Representative Verification
+   • NAB Safeguard Notice
+   • NAB Transaction Refund Request
+   • People's Choice Ongoing Call Notice
+   • People's Choice Representative Verification
+   • People's Choice Safeguard Notice
+   • People's Choice Transaction Refund Request
+   • RACQ Bank Ongoing Call Notice
+   • RACQ Bank Representative Verification
+   • RACQ Bank Safeguard Notice
+   • RACQ Bank Transaction Refund Request
+   • St George Bank Ongoing Call Notice
+   • St George Bank Representative Verification
+   • St George Bank Safeguard Notice
+   • St George Bank Transaction Refund Request
+   • Suncorp Ongoing Call Notice
+   • Suncorp Representative Verification
+   • Suncorp Safeguard Notice
+   • Suncorp Transaction Refund Request
+   • Teachers Mutual Bank Ongoing Call Notice
+   • Teachers Mutual Bank Representative Verification
+   • Teachers Mutual Bank Safeguard Notice
+   • Teachers Mutual Bank Transaction Refund Request
+   • UBank Ongoing Call Notice
+   • UBank Representative Verification
+   • UBank Safeguard Notice
+   • UBank Transaction Refund Request
+   • Westpac Ongoing Call Notice
+   • Westpac Representative Verification 2
+   • Westpac Safeguard Notice
+   • Westpac Transaction Refund Request
+
+[ Crypto ]
+   • 1inch Call Reminder
+   • 1inch Diagnostics
+   • 1inch Rep Verification
+   • Arculus Case Review
+   • Arculus Recovery Phrase
+   • Arculus Representative Verification
+   • Arculus Scheduled Call Reminder
+   • Arculus Security Alert
+   • Atomic Call Reminder
+   • Atomic Diagnostics
+   • Atomic Rep Verification
+   • Atomic Rep Verification (2)
+   • Binance Account Diagnostics
+   • Binance Bine To Safepal
+   • Binance Case Confirm
+   • Binance Case Review
+   • Binance Ongoing Call Notice
+   • Binance Scheduled Call Reminder
+   • Binance Security Alert
+   • Binance Suspicious Sign In
+   • Binance Suspicious Sign In Seed
+   • Binance To Trust
+   • Binance To Trust Old
+   • Bine to SafePal  (Binance)
+   • Bine to Trust  (Binance)
+   • Case Review  (Binance)
+   • Recovery Information Seed  (Binance)
+   • Rep Confirmation  (Binance)
+   • binance_account_diagnostics
+   • Bitget Case Review
+   • Bitget Recovery Phrase
+   • Bitget Representative Verification
+   • Bitget Scheduled Call Reminder
+   • Bitget Security Alert
+   • Bitpanda To Safepal
+   • Bitpanda Verify Representative
+   • Blockchain.com Case Review
+   • Blockchain.com Recovery Phrase
+   • Blockchain.com Representative Verification
+   • Blockchain.com Scheduled Call Reminder
+   • Blockchain.com Security Alert
+   • Bybit Case Review
+   • Bybit Recovery Phrase
+   • Bybit Representative Verification
+   • Bybit Scheduled Call Reminder
+   • Bybit Security Alert
+   • CB to CB Wallet  (Coinbase)
+   • CB to SafePal  (Coinbase)
+   • CB to Trust  (Coinbase)
+   • Case Review  (Coinbase)
+   • Coinbase Case Review (Flagged)
+   • Coinbase Cb Account Diagnostics
+   • Coinbase New Device Sign-In
+   • Coinbase Ongoing Call Notice
+   • Coinbase Safeguard To Cb Wallet (Rework)
+   • Coinbase Safeguard To Safepal Cb
+   • Coinbase Scheduled Call Reminder
+   • Coinbase Security Alert
+   • Coinbase To Trust Wallet
+   • Coinbase Verify Representative
+   • Seed  (Coinbase)
+   • Verify Rep  (Coinbase)
+   • Coinbase Wallet Diagnostics
+   • Coinhako Account Diagnostics
+   • Coinhako Case Review
+   • Coinhako Login
+   • Coinhako To Safepal
+   • Coinhako To Trust Wallet
+   • Coinspot Account Diagnostics
+   • Coinspot Rep Verification
+   • Coinspot To Safepal
+   • CDC To SafePal  (Crypto.com)
+   • CDC To Trust  (Crypto.com)
+   • Case Review  (Crypto.com)
+   • Crypto.com Cdc To Cdc Wallet
+   • Crypto.com Cdc To Safepal
+   • Crypto.com Cdc To Trust
+   • Crypto.com Crypto Account Diagnostics
+   • Crypto.com Cryptocom Case Review
+   • Crypto.com Verify Case Number
+   • Crypto.com Verify Case Number 2
+   • Crypto.com Verify Representative
+   • Verify Case Number  (Crypto.com)
+   • Dcent Call Reminder
+   • Dcent Diagnostics
+   • Dcent Rep Verification
+   • Ellipal Call Reminder
+   • Ellipal Diagnostics
+   • Ellipal Rep Verification
+   • Exodus Call Reminder
+   • Exodus Diagnostics
+   • Exodus Rep Verification
+   • Gate.io Case Review
+   • Gate.io Recovery Phrase
+   • Gate.io Representative Verification
+   • Gate.io Scheduled Call Reminder
+   • Gate.io Security Alert
+   • Gemini Ban
+   • Gemini Call Reminder
+   • Gemini Case Review
+   • Gemini Diagnostics
+   • Gemini To Safepal
+   • Hashkey Account Diagnostics Zh
+   • Hashkey Case Review Zh
+   • Hashkey To Safepal Setup Zh
+   • Kraken Call Reminder
+   • Kraken Case Review
+   • Kraken Diagnostics
+   • Kraken Employee Verification
+   • Kraken Rep Verification
+   • Kraken To Kraken Wallet
+   • Kraken To Safepal
+   • Kraken To Trust
+   • Kraken Update Info
+   • Kraken Verify
+   • KuCoin Case Review
+   • KuCoin To Safepal
+   • KuCoin To Trust
+   • Call Reminder  (Ledger)
+   • Case Review  (Ledger)
+   • Ledger Call Reminder
+   • Ledger Case Review
+   • Ledger Kantengu Request
+   • Ledger New Device Sign-In
+   • Ledger Recover Profile
+   • Ledger Rep Verification
+   • Ledger Safu Protocol
+   • Ledger Security Alert
+   • Ledger Verification Code
+   • Ledger Verify Representative
+   • Rep Verify  (Ledger)
+   • Visit Panel  (Ledger)
+   • Visit Panel Emptier  (Ledger)
+   • MetaMask Call Reminder
+   • MetaMask Diagnostics
+   • MetaMask Rep Verification
+   • Nexo Account Diagnostics
+   • Nexo Case Review
+   • Nexo To Safepal
+   • OKX Call Reminder
+   • OKX Diagnostics
+   • OKX Rep Verification
+   • OKX To Safepal Wallet Setup
+   • OneKey Case Review
+   • OneKey Recovery Phrase
+   • OneKey Representative Verification
+   • OneKey Scheduled Call Reminder
+   • OneKey Security Alert
+   • Phantom Call Reminder
+   • Phantom Diagnostics
+   • Phantom Rep Verification
+   • Rabby Rep Verification
+   • Active Call Notice  (Robinhood)
+   • Case Initiated  (Robinhood)
+   • Robinhood Account Diagnostics
+   • Robinhood Call Reminder
+   • Robinhood Case Review
+   • Robinhood Coinbase To Robinhood
+   • Robinhood To Safepal
+   • Robinhood To Trust
+   • Seedphrase  (Robinhood)
+   • Representative Verification  (SafePal)
+   • SafePal Call Reminder
+   • SafePal Diagnostics
+   • SafePal Rep Verification
+   • SafePal Seed
+   • Scheduled Call Reminder  (SafePal)
+   • Case Review  (ShakePay)
+   • ShakePay Account Diagnostics
+   • ShakePay Case Review
+   • ShakePay To Safepal
+   • Shakepay to SafePal
+   • Swyftx Representative Confirmation
+   • Swyftx Safepal Blank
+   • Tangem Call Reminder
+   • Tangem Diagnostics
+   • Tangem Rep Verification
+   • Trezor Case Review
+   • Trezor Diagnostics
+   • Trezor Kantengu Request
+   • Trezor New Device Sign-In
+   • Trezor Ongoing Call Notice
+   • Trezor Recover Profile
+   • Trezor Recovery Phrase
+   • Trezor Rep Verification
+   • Trezor Safu
+   • Trezor Scheduled Call Reminder
+   • Trezor Security Alert
+   • Case Review  (Trust)
+   • Scheduled Call Reminder  (Trust)
+   • Trust Call Reminder
+   • Trust Diagnostics
+   • Trust Rep Verification
+   • Uphold Account Diagnostics
+   • Uphold Case Review
+   • Uphold To Safepal
+
+[ EU Bank ]
+   • Pleo Transaction Cancellation
+   • Representative Verification  (Pleo)
+
+[ Finance ]
+   • PayPal Case Review
+   • PayPal Representative Confirmation
+   • eToro Case Review
+   • eToro Representative Confirmation
+
+[ Google ]
+   • Call Verification  (Gmail Recovery)
+   • Gmail Recovery Transaction Cancellation
+
+[ Harvested ]
+   • 2 Step Verification Turned On  (Captured)
+   • Confirm Your Email Get Regular Updates Inbox  (Captured)
+   • John Finish Setting Up Your New Google Account  (Captured)
+   • Representative Verification  (Captured)
+   • Safeguard Notice Ref Ref2K9X4  (Captured)
+   • Security Alert  (Captured)
+   • Transaction Cancellation Ref Ref2K9X4  (Captured)
+   • Transaction Refund Request Ref Ref2K9X4  (Captured)
+
+[ Institution ]
+   • AFP Case Review
+   • AFP Representative Verification
+   • BaFin Case Review
+   • BaFin Representative Verification
+   • LAPD Case Review
+   • LAPD Representative Verification
+   • Met Police Representative Verification
+   • NYPD Representative Verification
+   • NYPD Case Review
+
+[ NZ Bank ]
+   • ANZ New Zealand Ongoing Call Notice
+   • ANZ New Zealand Representative Verification
+   • ANZ New Zealand Safeguard Notice
+   • ANZ New Zealand Transaction Refund Request
+   • ASB Ongoing Call Notice
+   • ASB Representative Verification 2
+   • ASB Safeguard Notice
+   • ASB Transaction Refund Request
+   • BNZ Ongoing Call Notice
+   • BNZ Representative Verification 2
+   • BNZ Safeguard Notice
+   • BNZ Transaction Refund Request
+   • Co-operative Bank NZ Ongoing Call Notice
+   • Co-operative Bank NZ Representative Verification
+   • Co-operative Bank NZ Safeguard Notice
+   • Co-operative Bank NZ Transaction Refund Request
+   • Heartland Bank Ongoing Call Notice
+   • Heartland Bank Representative Verification
+   • Heartland Bank Safeguard Notice
+   • Heartland Bank Transaction Refund Request
+   • Kiwibank Ongoing Call Notice
+   • Kiwibank Representative Verification 2
+   • Kiwibank Safeguard Notice
+   • Kiwibank Transaction Refund Request
+   • SBS Bank Ongoing Call Notice
+   • SBS Bank Representative Verification
+   • SBS Bank Safeguard Notice
+   • SBS Bank Transaction Refund Request
+   • TSB Bank NZ Ongoing Call Notice
+   • TSB Bank NZ Representative Verification
+   • TSB Bank NZ Safeguard Notice
+   • TSB Bank NZ Transaction Refund Request
+   • Westpac NZ Ongoing Call Notice
+   • Westpac NZ Representative Verification
+   • Westpac NZ Safeguard Notice
+   • Westpac NZ Transaction Refund Request
+
+[ UK Bank ]
+   • AIB Ongoing Call Notice
+   • AIB Safeguard Notice
+   • AIB Transaction Cancellation
+   • AIB Transaction Refund Request
+   • Representative Verification  (AIB)
+   • Aldermore Ongoing Call Notice
+   • Aldermore Representative Verification
+   • Aldermore Safeguard Notice
+   • Aldermore Transaction Refund Request
+   • Amex Ongoing Call Notice
+   • Amex Safeguard Notice
+   • Amex Transaction Cancellation
+   • Amex Transaction Refund Request
+   • Representative Verification  (Amex)
+   • Representative Verification 2  (Amex)
+   • Atom Bank Ongoing Call Notice
+   • Atom Bank Representative Verification
+   • Atom Bank Safeguard Notice
+   • Atom Bank Transaction Refund Request
+   • Bank of Ireland UK Ongoing Call Notice
+   • Bank of Ireland UK Representative Verification
+   • Bank of Ireland UK Safeguard Notice
+   • Bank of Ireland UK Transaction Refund Request
+   • Bank of Scotland Transaction Cancellation
+   • Representative Verification  (Bank of Scotland)
+   • Barclays Ongoing Call Notice
+   • Barclays Safeguard Notice
+   • Barclays Transaction Cancellation
+   • Barclays Transaction Refund Request
+   • Representative Verification  (Barclays)
+   • Representative Verification 2  (Barclays)
+   • Chase UK Ongoing Call Notice
+   • Chase UK Representative Verification
+   • Chase UK Safeguard Notice
+   • Chase UK Transaction Refund Request
+   • Clydesdale Bank Ongoing Call Notice
+   • Clydesdale Bank Representative Verification
+   • Clydesdale Bank Safeguard Notice
+   • Clydesdale Bank Transaction Refund Request
+   • Co-Op Transaction Cancellation
+   • Representative Verification  (Co-Op)
+   • Co-op Bank Ongoing Call Notice
+   • Co-op Bank Representative Verification
+   • Co-op Bank Safeguard Notice
+   • Co-op Bank Transaction Refund Request
+   • Co-operative Bank Ongoing Call Notice
+   • Co-operative Bank Representative Verification
+   • Co-operative Bank Safeguard Notice
+   • Co-operative Bank Transaction Refund Request
+   • Coutts Transaction Cancellation
+   • Representative Verification  (Coutts)
+   • Coventry Ongoing Call Notice
+   • Coventry Representative Verification
+   • Coventry Safeguard Notice
+   • Coventry Transaction Refund Request
+   • Danske Bank Ongoing Call Notice
+   • Danske Bank Representative Verification
+   • Danske Bank Safeguard Notice
+   • Danske Bank Transaction Refund Request
+   • First Direct Ongoing Call Notice
+   • First Direct Representative Verification
+   • First Direct Safeguard Notice
+   • First Direct Transaction Refund Request
+   • HSBC Ongoing Call Notice
+   • HSBC Safeguard Notice
+   • HSBC Transaction Cancellation
+   • HSBC Transaction Refund Request
+   • Representative Verification  (HSBC)
+   • Representative Verification 2  (HSBC)
+   • Halifax Ongoing Call Notice
+   • Halifax Safeguard Notice
+   • Halifax Transaction Cancellation
+   • Halifax Transaction Refund Request
+   • Representative Verification  (Halifax)
+   • Kroo Ongoing Call Notice
+   • Kroo Representative Verification
+   • Kroo Safeguard Notice
+   • Kroo Transaction Refund Request
+   • Lloyds Ongoing Call Notice
+   • Lloyds Safeguard Notice
+   • Lloyds Transaction Cancellation
+   • Lloyds Transaction Refund Request
+   • Representative Verification  (Lloyds)
+   • M&S Bank Ongoing Call Notice
+   • M&S Bank Representative Verification
+   • M&S Bank Safeguard Notice
+   • M&S Bank Transaction Refund Request
+   • Metro Transaction Cancellation
+   • Representative Verification  (Metro)
+   • Metro Bank Ongoing Call Notice
+   • Metro Bank Representative Verification
+   • Metro Bank Safeguard Notice
+   • Metro Bank Transaction Refund Request
+   • Monzo Representative Verification
+   • Monzo Safeguard Notice
+   • Monzo Transaction Refund Request
+   • Ongoing Call Notice  (Monzo)
+   • Account Investigation COURIER  (NatWest)
+   • NatWest Ongoing Call Notice
+   • NatWest Safeguard Notice
+   • NatWest Transaction Cancellation
+   • NatWest Transaction Refund Request
+   • Representative Verification  (NatWest)
+   • Nationwide Ongoing Call Notice
+   • Nationwide Safeguard Notice
+   • Nationwide Transaction Cancellation
+   • Nationwide Transaction Refund Request
+   • Representative Verification  (Nationwide)
+   • Revolut Ongoing Call Notice
+   • Revolut Representative Verification
+   • Revolut Safeguard Notice
+   • Revolut Transaction Refund Request
+   • revolut1_email_template
+   • Sainsbury's Bank Ongoing Call Notice
+   • Sainsbury's Bank Representative Verification
+   • Sainsbury's Bank Safeguard Notice
+   • Sainsbury's Bank Transaction Refund Request
+   • Representative Verification  (Santander)
+   • Safeguard  (Santander)
+   • Santander Ongoing Call Notice
+   • Santander Transaction Cancellation
+   • Santander Transaction Refund Request
+   • Skipton Ongoing Call Notice
+   • Skipton Representative Verification
+   • Skipton Safeguard Notice
+   • Skipton Transaction Refund Request
+   • Device Added Notification  (Starling)
+   • Ongoing Call Notification  (Starling)
+   • Starling Representative Verification
+   • Starling Safeguard Notice
+   • Starling Transaction Refund Request
+   • TSB Ongoing Call Notice
+   • TSB Representative Verification
+   • TSB Safeguard Notice
+   • TSB Transaction Refund Request
+   • Tesco Bank Ongoing Call Notice
+   • Tesco Bank Representative Verification
+   • Tesco Bank Safeguard Notice
+   • Tesco Bank Transaction Refund Request
+   • Representative Verification  (Think Money)
+   • Think Money Ongoing Call Notice
+   • Think Money Safeguard Notice
+   • Think Money Transaction Cancellation
+   • Think Money Transaction Refund Request
+   • Ulster Bank Ongoing Call Notice
+   • Ulster Bank Representative Verification
+   • Ulster Bank Safeguard Notice
+   • Ulster Bank Transaction Refund Request
+   • Representative Verification  (Virgin Money)
+   • Virgin Money Ongoing Call Notice
+   • Virgin Money Safeguard Notice
+   • Virgin Money Transaction Cancellation
+   • Virgin Money Transaction Refund Request
+   • Active Call Notice  (Wise)
+   • Device Added Notification  (Wise)
+   • Wise Safeguard Notice
+   • Wise Transaction Refund Request
+   • Yorkshire BS Ongoing Call Notice
+   • Yorkshire BS Representative Verification
+   • Yorkshire BS Safeguard Notice
+   • Yorkshire BS Transaction Refund Request
+   • Zopa Ongoing Call Notice
+   • Zopa Representative Verification
+   • Zopa Safeguard Notice
+   • Zopa Transaction Refund Request
+
+[ UK Other ]
+   • FCA Transaction Cancellation
+   • Representative Verification  (FCA)
+   • Met Police Transaction Cancellation
+   • Representative Verification  (Met Police)
+
+[ US Bank ]
+   • Wells Fargo Ongoing Call Notice
+   • Wells Fargo Representative Verification
+   • Wells Fargo Safeguard Notice
+   • Wells Fargo Transaction Refund Request
+   • Truist Ongoing Call Notice
+   • Truist Representative Verification
+   • Truist Safeguard Notice
+   • Truist Transaction Refund Request
+   • Bank of America Ongoing Call Notice
+   • Bank of America Representative Verification
+   • Bank of America Safeguard Notice
+   • Bank of America Transaction Refund Request

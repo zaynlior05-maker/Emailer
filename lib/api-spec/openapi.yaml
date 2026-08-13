@@ -1,0 +1,797 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.2.0
+  description: Telegram Notification Engine API
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: templates
+    description: Notification template operations
+  - name: notifications
+    description: Telegram notification sending and log operations
+  - name: email
+    description: Email dispatch operations
+  - name: brands
+    description: Brand theme management
+  - name: stats
+    description: Dashboard statistics
+
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /brands:
+    get:
+      operationId: listBrands
+      tags: [brands]
+      summary: List all brand themes
+      parameters:
+        - name: category
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of brands
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Brand"
+    post:
+      operationId: createBrand
+      tags: [brands]
+      summary: Create a brand theme
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BrandInput"
+      responses:
+        "201":
+          description: Created brand
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Brand"
+
+  /brands/{id}:
+    get:
+      operationId: getBrand
+      tags: [brands]
+      summary: Get a brand by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: number
+      responses:
+        "200":
+          description: Brand
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Brand"
+        "404":
+          description: Not found
+    patch:
+      operationId: updateBrand
+      tags: [brands]
+      summary: Update a brand
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BrandUpdate"
+      responses:
+        "200":
+          description: Updated brand
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Brand"
+        "404":
+          description: Not found
+    delete:
+      operationId: deleteBrand
+      tags: [brands]
+      summary: Delete a brand
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: number
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Not found
+
+  /templates:
+    get:
+      operationId: listTemplates
+      tags: [templates]
+      summary: List all templates
+      responses:
+        "200":
+          description: List of templates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Template"
+    post:
+      operationId: createTemplate
+      tags: [templates]
+      summary: Create a new template
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TemplateInput"
+      responses:
+        "201":
+          description: Created template
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Template"
+        "400":
+          description: Bad request
+
+  /templates/{id}:
+    get:
+      operationId: getTemplate
+      tags: [templates]
+      summary: Get a template by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: number
+      responses:
+        "200":
+          description: Template
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Template"
+        "404":
+          description: Not found
+    patch:
+      operationId: updateTemplate
+      tags: [templates]
+      summary: Update a template
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TemplateUpdate"
+      responses:
+        "200":
+          description: Updated template
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Template"
+        "404":
+          description: Not found
+    delete:
+      operationId: deleteTemplate
+      tags: [templates]
+      summary: Delete a template
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: number
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Not found
+
+  /notifications/send:
+    post:
+      operationId: sendNotification
+      tags: [notifications]
+      summary: Send a formatted notification via Telegram
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NotificationSend"
+      responses:
+        "200":
+          description: Send result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SendResult"
+        "400":
+          description: Bad request
+
+  /notifications/preview:
+    post:
+      operationId: previewNotification
+      tags: [notifications]
+      summary: Render a template with variables (without sending)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NotificationPreview"
+      responses:
+        "200":
+          description: Rendered preview
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PreviewResult"
+        "400":
+          description: Bad request
+
+  /notifications/logs:
+    get:
+      operationId: listNotificationLogs
+      tags: [notifications]
+      summary: List Telegram notification send history
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: number
+            default: 50
+        - name: offset
+          in: query
+          schema:
+            type: number
+            default: 0
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [sent, failed, all]
+            default: all
+      responses:
+        "200":
+          description: Notification logs
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotificationLogList"
+
+  /email/send:
+    post:
+      operationId: sendEmail
+      tags: [email]
+      summary: Send an HTML email using a template and brand theme
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EmailSend"
+      responses:
+        "200":
+          description: Email send result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EmailSendResult"
+        "400":
+          description: Bad request
+        "500":
+          description: SMTP error
+
+  /email/preview:
+    post:
+      operationId: previewEmail
+      tags: [email]
+      summary: Render a branded email HTML (without sending)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EmailPreviewRequest"
+      responses:
+        "200":
+          description: Rendered email HTML
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EmailPreviewResult"
+        "400":
+          description: Bad request
+
+  /email/dispatches:
+    get:
+      operationId: listEmailDispatches
+      tags: [email]
+      summary: List email dispatch history
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: number
+            default: 50
+        - name: offset
+          in: query
+          schema:
+            type: number
+            default: 0
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [sent, failed, all]
+            default: all
+      responses:
+        "200":
+          description: Email dispatch logs
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EmailDispatchList"
+
+  /stats:
+    get:
+      operationId: getDashboardStats
+      tags: [stats]
+      summary: Get dashboard statistics
+      responses:
+        "200":
+          description: Dashboard stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardStats"
+
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required: [status]
+
+    Brand:
+      type: object
+      required: [id, key, name, category, theme, primaryColor, cardBg, bodyBg, textColor, createdAt, updatedAt]
+      properties:
+        id:
+          type: number
+        key:
+          type: string
+        name:
+          type: string
+        category:
+          type: string
+          enum: [crypto, banking_uk, banking_us, banking_aus, institution]
+        theme:
+          type: string
+          enum: [light, dark]
+        primaryColor:
+          type: string
+        headerBg:
+          type: ["string", "null"]
+        cardBg:
+          type: string
+        bodyBg:
+          type: string
+        textColor:
+          type: string
+        accentBg:
+          type: ["string", "null"]
+        logoUrl:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    BrandInput:
+      type: object
+      required: [key, name, category, theme, primaryColor, cardBg, bodyBg, textColor]
+      properties:
+        key:
+          type: string
+          minLength: 1
+        name:
+          type: string
+          minLength: 1
+        category:
+          type: string
+          enum: [crypto, banking_uk, banking_us, banking_aus, institution]
+        theme:
+          type: string
+          enum: [light, dark]
+        primaryColor:
+          type: string
+        headerBg:
+          type: string
+        cardBg:
+          type: string
+        bodyBg:
+          type: string
+        textColor:
+          type: string
+        accentBg:
+          type: string
+        logoUrl:
+          type: string
+
+    BrandUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        category:
+          type: string
+          enum: [crypto, banking_uk, banking_us, banking_aus, institution]
+        theme:
+          type: string
+          enum: [light, dark]
+        primaryColor:
+          type: string
+        headerBg:
+          type: ["string", "null"]
+        cardBg:
+          type: string
+        bodyBg:
+          type: string
+        textColor:
+          type: string
+        accentBg:
+          type: ["string", "null"]
+        logoUrl:
+          type: ["string", "null"]
+
+    Template:
+      type: object
+      required: [id, name, theme, category, content, createdAt, updatedAt]
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        theme:
+          type: string
+          enum: [minimalist, high-priority, custom]
+        category:
+          type: string
+          enum: [banking, crypto, ecommerce, support, custom]
+        content:
+          type: string
+        emailSubject:
+          type: ["string", "null"]
+        emailContent:
+          type: ["string", "null"]
+        brandKey:
+          type: ["string", "null"]
+        buttonLabel:
+          type: ["string", "null"]
+        buttonUrl:
+          type: ["string", "null"]
+        description:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    TemplateInput:
+      type: object
+      required: [name, theme, category, content]
+      properties:
+        name:
+          type: string
+          minLength: 1
+        theme:
+          type: string
+          enum: [minimalist, high-priority, custom]
+        category:
+          type: string
+          enum: [banking, crypto, ecommerce, support, custom]
+        content:
+          type: string
+          minLength: 1
+        emailSubject:
+          type: string
+        emailContent:
+          type: string
+        brandKey:
+          type: string
+        buttonLabel:
+          type: string
+        buttonUrl:
+          type: string
+        description:
+          type: string
+
+    TemplateUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        theme:
+          type: string
+          enum: [minimalist, high-priority, custom]
+        category:
+          type: string
+          enum: [banking, crypto, ecommerce, support, custom]
+        content:
+          type: string
+          minLength: 1
+        emailSubject:
+          type: ["string", "null"]
+        emailContent:
+          type: ["string", "null"]
+        brandKey:
+          type: ["string", "null"]
+        buttonLabel:
+          type: ["string", "null"]
+        buttonUrl:
+          type: ["string", "null"]
+        description:
+          type: ["string", "null"]
+
+    NotificationSend:
+      type: object
+      required: [templateId, chatId, variables]
+      properties:
+        templateId:
+          type: number
+        chatId:
+          type: string
+        variables:
+          type: object
+          additionalProperties:
+            type: string
+
+    NotificationPreview:
+      type: object
+      required: [templateId, variables]
+      properties:
+        templateId:
+          type: number
+        variables:
+          type: object
+          additionalProperties:
+            type: string
+
+    SendResult:
+      type: object
+      required: [success, logId]
+      properties:
+        success:
+          type: boolean
+        logId:
+          type: number
+        messageId:
+          type: ["number", "null"]
+        error:
+          type: ["string", "null"]
+
+    PreviewResult:
+      type: object
+      required: [rendered]
+      properties:
+        rendered:
+          type: string
+        variables:
+          type: array
+          items:
+            type: string
+
+    EmailSend:
+      type: object
+      required: [templateId, brandKey, recipientEmail, emailSubject, variables]
+      properties:
+        templateId:
+          type: number
+        brandKey:
+          type: string
+        recipientEmail:
+          type: string
+        emailSubject:
+          type: string
+        variables:
+          type: object
+          additionalProperties:
+            type: string
+
+    EmailSendResult:
+      type: object
+      required: [success, dispatchId]
+      properties:
+        success:
+          type: boolean
+        dispatchId:
+          type: number
+        error:
+          type: ["string", "null"]
+
+    EmailPreviewRequest:
+      type: object
+      required: [templateId, brandKey, variables]
+      properties:
+        templateId:
+          type: number
+        brandKey:
+          type: string
+        variables:
+          type: object
+          additionalProperties:
+            type: string
+
+    EmailPreviewResult:
+      type: object
+      required: [html, variables]
+      properties:
+        html:
+          type: string
+        variables:
+          type: array
+          items:
+            type: string
+
+    EmailDispatch:
+      type: object
+      required: [id, templateId, templateName, brandKey, brandName, recipientEmail, emailSubject, status, createdAt]
+      properties:
+        id:
+          type: number
+        templateId:
+          type: number
+        templateName:
+          type: string
+        brandKey:
+          type: string
+        brandName:
+          type: string
+        recipientEmail:
+          type: string
+        emailSubject:
+          type: string
+        telegramUserId:
+          type: ["string", "null"]
+        status:
+          type: string
+          enum: [sent, failed]
+        errorMessage:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+          format: date-time
+
+    EmailDispatchList:
+      type: object
+      required: [dispatches, total]
+      properties:
+        dispatches:
+          type: array
+          items:
+            $ref: "#/components/schemas/EmailDispatch"
+        total:
+          type: number
+
+    NotificationLog:
+      type: object
+      required: [id, templateId, templateName, chatId, status, sentAt]
+      properties:
+        id:
+          type: number
+        templateId:
+          type: number
+        templateName:
+          type: string
+        chatId:
+          type: string
+        recipientName:
+          type: ["string", "null"]
+        caseReference:
+          type: ["string", "null"]
+        status:
+          type: string
+          enum: [sent, failed]
+        errorMessage:
+          type: ["string", "null"]
+        messageId:
+          type: ["number", "null"]
+        sentAt:
+          type: string
+          format: date-time
+
+    NotificationLogList:
+      type: object
+      required: [logs, total]
+      properties:
+        logs:
+          type: array
+          items:
+            $ref: "#/components/schemas/NotificationLog"
+        total:
+          type: number
+
+    DailyActivity:
+      type: object
+      required: [date, sent, failed]
+      properties:
+        date:
+          type: string
+        sent:
+          type: number
+        failed:
+          type: number
+
+    DashboardStats:
+      type: object
+      required: [totalSent, totalFailed, successRate, templateCount, brandCount, emailDispatched, recentActivity, recentLogs]
+      properties:
+        totalSent:
+          type: number
+        totalFailed:
+          type: number
+        successRate:
+          type: number
+        templateCount:
+          type: number
+        brandCount:
+          type: number
+        emailDispatched:
+          type: number
+        recentActivity:
+          type: array
+          items:
+            $ref: "#/components/schemas/DailyActivity"
+        recentLogs:
+          type: array
+          items:
+            $ref: "#/components/schemas/NotificationLog"

@@ -1,0 +1,100 @@
+npm warn config production Use `--omit=dev` instead.
+> @workspace/api-server@0.0.0 start /app/artifacts/api-server
+> node --enable-source-maps ./dist/index.mjs
+Server listening
+(node:27) [node-telegram-bot-api] DeprecationWarning: deleteWebHook(...) is deprecated; use deleteWebhook(...) instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Telegram webhook cleared
+Telegram bot active
+/app/node_modules/.pnpm/drizzle-orm@0.45.2_@types+pg@8.21.0_pg@8.23.0/node_modules/src/pg-core/session.ts:73
+      at <anonymous> (/app/node_modules/.pnpm/pg-pool@3.14.0_pg@8.23.0/node_modules/pg-pool/index.js:45:11)
+				throw new DrizzleQueryError(queryString, params, e as Error);
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+				      ^
+      at <anonymous> (/app/node_modules/.pnpm/drizzle-orm@0.45.2_@types+pg@8.21.0_pg@8.23.0/node_modules/src/node-postgres/session.ts:161:13)
+    at _TelegramBot.<anonymous> (/app/artifacts/api-server/src/lib/bot-handlers.ts:248:22) {
+_DrizzleQueryError: Failed query: select "key", "name" from "brands" where "brands"."category" = $1 order by "brands"."name"
+  query: 'select "key", "name" from "brands" where "brands"."category" = $1 order by "brands"."name"',
+params: crypto
+  params: [ 'crypto' ],
+    at NodePgPreparedQuery.queryWithCache (/app/node_modules/.pnpm/drizzle-orm@0.45.2_@types+pg@8.21.0_pg@8.23.0/node_modules/src/pg-core/session.ts:73:11)
+  cause: error: relation "brands" does not exist
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at <anonymous> (/app/node_modules/.pnpm/drizzle-orm@0.45.2_@types+pg@8.21.0_pg@8.23.0/node_modules/src/node-postgres/session.ts:154:19)
+    line: '1466',
+    routine: 'parserOpenTable'
+  }
+}
+      at NodePgPreparedQuery.queryWithCache (/app/node_modules/.pnpm/drizzle-orm@0.45.2_@types+pg@8.21.0_pg@8.23.0/node_modules/src/pg-core/session.ts:71:12)
+Node.js v18.20.5
+      at <anonymous> (/app/node_modules/.pnpm/drizzle-orm@0.45.2_@types+pg@8.21.0_pg@8.23.0/node_modules/src/node-postgres/session.ts:154:19)
+/app/artifacts/api-server:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @workspace/api-server@0.0.0 start: `node --enable-source-maps ./dist/index.mjs`
+      at _TelegramBot.<anonymous> (/app/artifacts/api-server/src/lib/bot-handlers.ts:248:22) {
+    length: 105,
+    severity: 'ERROR',
+    code: '42P01',
+    detail: undefined,
+    hint: undefined,
+    position: '27',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_relation.c',
+(node:27) [node-telegram-bot-api] DeprecationWarning: deleteWebHook(...) is deprecated; use deleteWebhook(...) instead.
+Exit status 1
+(Use `node --trace-deprecation ...` to show where the warning was created)
+npm warn config production Use `--omit=dev` instead.
+> @workspace/api-server@0.0.0 start /app/artifacts/api-server
+> node --enable-source-maps ./dist/index.mjs
+Server listening
+Telegram webhook cleared
+Telegram bot active
+/app/node_modules/.pnpm/drizzle-orm@0.45.2_@types+pg@8.21.0_pg@8.23.0/node_modules/src/pg-core/session.ts:73
+				throw new DrizzleQueryError(queryString, params, e as Error);
+				      ^
+_DrizzleQueryError: Failed query: select "key", "name" from "brands" where "brands"."category" = $1 order by "brands"."name"
+params: banking_uk
+    at NodePgPreparedQuery.queryWithCache (/app/node_modules/.pnpm/drizzle-orm@0.45.2_@types+pg@8.21.0_pg@8.23.0/node_modules/src/pg-core/session.ts:73:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at <anonymous> (/app/node_modules/.pnpm/drizzle-orm@0.45.2_@types+pg@8.21.0_pg@8.23.0/node_modules/src/node-postgres/session.ts:154:19)
+    at _TelegramBot.<anonymous> (/app/artifacts/api-server/src/lib/bot-handlers.ts:248:22) {
+  query: 'select "key", "name" from "brands" where "brands"."category" = $1 order by "brands"."name"',
+  params: [ 'banking_uk' ],
+  cause: error: relation "brands" does not exist
+      at <anonymous> (/app/node_modules/.pnpm/pg-pool@3.14.0_pg@8.23.0/node_modules/pg-pool/index.js:45:11)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at <anonymous> (/app/node_modules/.pnpm/drizzle-orm@0.45.2_@types+pg@8.21.0_pg@8.23.0/node_modules/src/node-postgres/session.ts:161:13)
+      at NodePgPreparedQuery.queryWithCache (/app/node_modules/.pnpm/drizzle-orm@0.45.2_@types+pg@8.21.0_pg@8.23.0/node_modules/src/pg-core/session.ts:71:12)
+Node.js v18.20.5
+      at <anonymous> (/app/node_modules/.pnpm/drizzle-orm@0.45.2_@types+pg@8.21.0_pg@8.23.0/node_modules/src/node-postgres/session.ts:154:19)
+    file: 'parse_relation.c',
+    table: undefined,
+      at _TelegramBot.<anonymous> (/app/artifacts/api-server/src/lib/bot-handlers.ts:248:22) {
+    column: undefined,
+    length: 105,
+    dataType: undefined,
+    line: '1466',
+    detail: undefined,
+    severity: 'ERROR',
+    constraint: undefined,
+    code: '42P01',
+    hint: undefined,
+    position: '27',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    routine: 'parserOpenTable'
+    where: undefined,
+    schema: undefined,
+  }
+}
+/app/artifacts/api-server:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @workspace/api-server@0.0.0 start: `node --enable-source-maps ./dist/index.mjs`
+Exit status 1
+npm warn config production Use `--omit=dev` instead.
+> @workspace/api-server@0.0.0 start /app/artifacts/api-server
