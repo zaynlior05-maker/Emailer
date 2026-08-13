@@ -1,11 +1,7 @@
 [build]
-builder = "nixpacks"
-installCommand = "npm install -g pnpm && pnpm install --no-frozen-lockfile"
-buildCommand = "pnpm --filter @workspace/api-server run build && pnpm --filter @workspace/db run db:push"
+builder = "NIXPACKS"
+installCommand = "npx --yes pnpm install --no-frozen-lockfile"
+buildCommand = "npx --yes pnpm --filter @workspace/api-server run build && pnpm --filter @workspace/db run push"
 
 [deploy]
 startCommand = "pnpm --filter @workspace/api-server run start"
-healthcheckPath = "/api/stats"
-healthcheckTimeout = 30
-restartPolicyType = "on_failure"
-restartPolicyMaxRetries = 3
