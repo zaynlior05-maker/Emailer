@@ -1,7 +1,7 @@
 [build]
 builder = "NIXPACKS"
 installCommand = "npx --yes pnpm install --no-frozen-lockfile"
-buildCommand = "npx --yes pnpm --filter @workspace/api-server run build && pnpm --filter @workspace/db run push"
+buildCommand = "npx --yes pnpm --filter @workspace/api-server run build"
 
 [deploy]
-startCommand = "pnpm --filter @workspace/api-server run start"
+startCommand = "pnpm --filter @workspace/db run push && pnpm --filter @workspace/api-server run start"
